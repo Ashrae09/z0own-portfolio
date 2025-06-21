@@ -58,13 +58,13 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 text-align: center;
 max-width: 800px;
 width: 100%;
-animation: fadeIn 1.5s ease forwards;
+animation: fadeInCard 1.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
 box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 position: relative;
 }
 
-@keyframes fadeIn {
-from { opacity: 0; transform: translateY(40px) scale(0.98); }
+@keyframes fadeInCard {
+from { opacity: 0; transform: translateY(60px) scale(0.95); }
 to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
@@ -77,6 +77,11 @@ border: 4px solid #00c6ff;
 margin-bottom: 20px;
 box-shadow: 0 0 0 8px rgba(0,198,255,0.1);
 transition: transform 0.3s;
+animation: popInProfile 1.2s 0.3s cubic-bezier(.68,-0.55,.27,1.55) backwards;
+}
+@keyframes popInProfile {
+from { opacity: 0; transform: scale(0.7) rotate(-20deg); }
+to { opacity: 1; transform: scale(1) rotate(0); }
 }
 .profile-pic:hover {
 transform: rotate(-8deg) scale(1.07);
@@ -112,6 +117,11 @@ background: linear-gradient(90deg, #00c6ff, #0072ff);
 border-radius: 3px;
 margin: 30px auto 25px auto;
 opacity: 0.7;
+animation: dividerSlide 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes dividerSlide {
+from { width: 0; opacity: 0; }
+to { width: 60px; opacity: 0.7; }
 }
 
 .info-box {
@@ -144,9 +154,12 @@ padding: 0;
 line-height: 1.8;
 }
 
-.info-box ul li::before {
-content: "💡 ";
-color: #00c6ff;
+.info-box ul li {
+transition: transform 0.2s, color 0.2s;
+}
+.info-box ul li:hover {
+transform: scale(1.07) rotate(-2deg);
+color: #ffb347;
 }
 
 .telegram-btn, .hire-btn {
@@ -174,11 +187,20 @@ box-shadow: 0 0 20px #00c6ff;
 background: linear-gradient(135deg, #ffb347, #ffcc33);
 color: #232526;
 box-shadow: 0 0 10px #ffb347;
+transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
 }
 .hire-btn:hover {
 background: linear-gradient(135deg, #ffcc33, #ffb347);
 color: #232526;
 box-shadow: 0 0 20px #ffb347;
+animation: bounceBtn 0.6s;
+}
+@keyframes bounceBtn {
+0% { transform: scale(1); }
+30% { transform: scale(1.15) translateY(-8px); }
+50% { transform: scale(0.95) translateY(2px); }
+70% { transform: scale(1.05) translateY(-4px); }
+100% { transform: scale(1) translateY(0); }
 }
 
 footer {
@@ -218,9 +240,11 @@ Your browser does not support HTML5 video. (But your sense of style is still app
 <div class="card">
 <img src="file.png" alt="SHUBAM" class="profile-pic" />
 <h1>𝘇𝟬𝗼𝘄𝗻</h1>
-<div class="tagline">Building bots, breaking boredom, and occasionally breaking the internet.</div>
+<div class="tagline">Building bots, breaking boredom, and occasionally breaking the internet.<br>Warning: May cause spontaneous laughter and increased productivity.</div>
 <p>Hey there! I'm <b>𝘇𝟬𝗼𝘄𝗻</b> — a creative tech enthusiast, bot whisperer, and the proud owner of <a href="https://t.me/feydramods" style="color:#00c6ff;text-decoration:underline;">𝗙𝗲𝘆𝗱𝗿𝗮𝗠𝗼𝗱𝘀</a> Telegram channel.<br><br>
-I build bots, websites, and tools that (hopefully) make life easier and a lot more fun. If you see me coding at 3AM, mind your own business. 😄
+I build bots, websites, and tools that (hopefully) make life easier and a lot more fun. If you see me coding at 3AM, mind your own business. 😄<br>
+If you need a bot, a website, or just a good meme, you know who to call (hint: it's me).<br>
+P.S. I'm also a Tally Prime wizard—numbers fear me, accountants love me!
 </p>
 <div class="section-divider"></div>
 <div class="info-box">
@@ -241,15 +265,16 @@ I build bots, websites, and tools that (hopefully) make life easier and a lot mo
 <li>Telegram Bot Development (Bots > Humans?)</li>
 <li>Web UI/UX Design (Because ugly sites hurt my soul)</li>
 <li>Automation Systems (Let the robots do the boring stuff!)</li>
+<li>Tally Prime Expert (I can balance your books and your sense of humor!)</li>
 </ul>
 </div>
 <div class="section-divider"></div>
 <a href="https://t.me/z0own" class="telegram-btn" target="_blank">Join My Telegram</a>
-<button class="hire-btn" onclick="document.querySelector('.easter-egg').style.display='block'">Hire Me (I promise I only break things 10% of the time)</button>
-<div class="easter-egg">Just kidding! I break things only 5% of the time. Let's build something awesome together! 🚀</div>
+<button class="hire-btn" onclick="document.querySelector('.easter-egg').style.display='block'">Hire Me (I promise I only break things 10% of the time. 0% in Tally!)</button>
+<div class="easter-egg">Just kidding! I break things only 5% of the time. Unless it's Tally—then I'm flawless. Let's build something awesome together! 🚀</div>
 </div>
 <footer>© 2025 𝘇𝟬𝗼𝘄𝗻. All rights reserved. | Made with <span style="color:#ffb347;">&#10084;&#65039;</span> and a lot of coffee.<br>
-<span style="font-size:0.9em;opacity:0.7;">P.S. If you read this far, you deserve a cookie 🍪</span>
+<span style="font-size:0.9em;opacity:0.7;">P.S. If you read this far, you deserve a cookie 🍪 (or a Tally tip!)</span>
 </footer>
 </div>
 
